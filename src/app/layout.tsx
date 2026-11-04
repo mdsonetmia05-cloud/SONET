@@ -13,7 +13,7 @@ export const metadata = {
 
 const NAV = [
   ["Home", "/"], ["Divisions", "/divisions"], ["AI Tools", "/ai-tools"], ["Academy", "/academy"],
-  ["Marketplace", "/marketplace"], ["Skills", "/skills"], ["About", "/about"], ["Contact", "/contact"],
+  ["Marketplace", "/marketplace"], ["Skills", "/skills"], ["Founder", "/about"], ["Contact", "/contact"],
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
