@@ -1,0 +1,11 @@
+:root { color-scheme: light; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #FAFAF8; color: #171717; }
+a { color: #635BFF; }
+section { max-width: 1080px; margin: 0 auto; padding: 48px 24px; }
+h1 { font-size: 44px; line-height: 1.1; margin: 0 0 16px; }
+.card { border: 1px solid #E5E5E2; background: #fff; border-radius: 12px; padding: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+@media (prefers-color-scheme: dark) {
+  body { background: #101114; color: #F5F5F5; }
+  .card { background: #191B20; border-color: #30323A; }
+}
