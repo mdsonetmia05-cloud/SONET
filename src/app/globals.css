@@ -1,11 +1,25 @@
-:root { color-scheme: light; }
-body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #FAFAF8; color: #171717; }
-a { color: #635BFF; }
-section { max-width: 1080px; margin: 0 auto; padding: 48px 24px; }
-h1 { font-size: 44px; line-height: 1.1; margin: 0 0 16px; }
-.card { border: 1px solid #E5E5E2; background: #fff; border-radius: 12px; padding: 20px; }
+:root { --bg: #FFFFFF; --bg2: #F5F6F8; --ink: #17191D; --ink2: #737780; --accent: #315CBA; --accent-soft: #DCE5F7; --line: #E5E7EB; }
+@media (prefers-color-scheme: dark) { :root { --bg: #101114; --bg2: #191B20; --ink: #F5F5F5; --ink2: #A1A1AA; --accent: #8B9DFF; --accent-soft: #23283D; --line: #30323A; } }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, "Hind Siliguri", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+main > section, .wrap { max-width: 1120px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 42px; line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
+h2 { font-size: 28px; line-height: 1.25; margin: 32px 0 12px; }
+h3 { font-size: 18px; margin: 0 0 8px; }
+p { color: var(--ink); }
+.muted { color: var(--ink2); }
+.card { border: 1px solid var(--line); background: var(--bg); border-radius: 12px; padding: 20px; }
+.card-soft { background: var(--bg2); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-@media (prefers-color-scheme: dark) {
-  body { background: #101114; color: #F5F5F5; }
-  .card { background: #191B20; border-color: #30323A; }
-}
+.btn { display: inline-block; background: var(--accent); color: #fff; padding: 10px 18px; border-radius: 8px; font-weight: 600; border: 1px solid var(--accent); }
+.btn:hover { text-decoration: none; opacity: .92; }
+.btn-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); margin: 6px 0 14px; }
+label { font-weight: 600; font-size: 14px; }
+.badge { display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.empty { border: 1px dashed var(--line); border-radius: 12px; padding: 24px; text-align: center; color: var(--ink2); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
+@media (max-width: 640px) { h1 { font-size: 32px; } table { display: block; overflow-x: auto; } }
