@@ -6,3 +6,7 @@
 - bKash / Nagad / Card: Not Configured, manual verification only
 - Email provider: Not Configured, configure in Supabase
 - Sweet Upscaler / Sweet BG: Not Configured in the live app
+
+## This upgrade
+- Chat: Supabase Realtime when configured, otherwise secure fallback — Not Configured by default.
+- Analytics: real database queries only, no fabricated figures.
