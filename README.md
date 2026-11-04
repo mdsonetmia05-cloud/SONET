@@ -13,6 +13,11 @@ A unified digital business, AI, SaaS, education and technology platform.
 > from the artifact runtime. Treat this repo as the open, deployable
 > Next.js + Supabase codebase to continue SONET from.
 
+## Design system (redesign, 2026-11-04)
+Premium minimal SaaS: background #FFFFFF, secondary #F5F6F8, text #17191D,
+secondary text #737780, accent #315CBA, border #E5E7EB, soft accent #DCE5F7.
+English: Inter. Bengali: Hind Siliguri. Light + dark modes, responsive.
+
 ## Divisions
 
 - **SONET AI** — Sweet Prompts Pro, Sweet Stock AI, SweetTools, PromptEx,
