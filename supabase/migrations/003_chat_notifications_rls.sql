@@ -31,18 +31,21 @@ create index if not exists idx_class_subjects_class on class_subjects(class_id);
 -- Row Level Security: enable on user-owned tables and grant owners
 -- access to their own rows. Admin policies (service-role / admin role
 -- checks) must be added per deployment — see docs/SECURITY.md.
+-- Neon has no auth.uid(): the server sets app.current_user_id per
+-- request (set_config('app.current_user_id', '<user-uuid>')) and the
+-- policies compare against it. When it is unset, nothing matches.
 alter table profiles enable row level security;
 alter table orders enable row level security;
 alter table entitlements enable row level security;
 alter table notifications enable row level security;
 alter table conversations enable row level security;
 drop policy if exists "owners read own profile" on profiles;
-create policy "owners read own profile" on profiles for select using (auth.uid() = id);
+create policy "owners read own profile" on profiles for select using (id::text = current_setting('app.current_user_id', true));
 drop policy if exists "owners read own orders" on orders;
-create policy "owners read own orders" on orders for select using (auth.uid() = user_id);
+create policy "owners read own orders" on orders for select using (user_id::text = current_setting('app.current_user_id', true));
 drop policy if exists "owners read own entitlements" on entitlements;
-create policy "owners read own entitlements" on entitlements for select using (auth.uid() = user_id);
+create policy "owners read own entitlements" on entitlements for select using (user_id::text = current_setting('app.current_user_id', true));
 drop policy if exists "owners read own notifications" on notifications;
-create policy "owners read own notifications" on notifications for select using (auth.uid() = user_id);
+create policy "owners read own notifications" on notifications for select using (user_id::text = current_setting('app.current_user_id', true));
 drop policy if exists "owners read own conversations" on conversations;
-create policy "owners read own conversations" on conversations for select using (auth.uid() = user_id);
+create policy "owners read own conversations" on conversations for select using (user_id::text = current_setting('app.current_user_id', true));
