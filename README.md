@@ -11,7 +11,7 @@ A unified digital business, AI, SaaS, education and technology platform.
 > the same architecture. This repo is **not** a byte-for-byte export of
 > that hosted app's internal code, because that code is not downloadable
 > from the artifact runtime. Treat this repo as the open, deployable
-> Next.js + Supabase codebase to continue SONET from.
+> Next.js + Neon codebase to continue SONET from.
 
 ## Design system (redesign, 2026-11-04)
 Premium minimal SaaS: background #FFFFFF, secondary #F5F6F8, text #17191D,
@@ -33,23 +33,24 @@ English: Inter. Bengali: Hind Siliguri. Light + dark modes, responsive.
 
 ```bash
 cp .env.example .env.local
-# Fill NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
+# Fill DATABASE_URL, NEON_AUTH_BASE_URL and NEON_AUTH_COOKIE_SECRET
 npm install
 npm run dev
 ```
 
-Then apply `supabase/migrations/*.sql` in Supabase SQL Editor and
-`supabase/seed.sql` for the initial catalogue.
+Then apply `supabase/migrations/*.sql` in the Neon SQL Editor and
+`supabase/seed.sql` for the initial catalogue. (The `supabase/` folder
+name is historical; the SQL is plain Postgres for Neon.)
 
 ## Integration status — never simulated
 
 | Integration | Status |
 |---|---|
-| Supabase Auth / Postgres / Storage | Configure via `.env.local` — see `docs/DEPLOYMENT.md` |
-| Google OAuth | Not Configured (enable in Supabase Auth when ready) |
+| Neon Postgres + Neon Auth (Managed Better Auth) | Configure via `.env.local` — see `docs/DEPLOYMENT.md` |
+| Google OAuth | Not Configured (enable in Neon Auth when ready) |
 | Gemini / Groq / Mistral AI APIs | Not Configured — provider keys stay server-side only |
 | bKash / Nagad / Card payments | Not Configured — manual payment verification only |
-| Email delivery | Not Configured — configure a provider in Supabase |
+| Email delivery | Not Configured — auth emails use Neon's shared SMTP only |
 
 No copyrighted NCTB textbook content is reproduced in full. Use original
 explanations, teacher-created materials, licensed resources and links to
