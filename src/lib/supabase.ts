@@ -1,9 +1,0 @@
-import { createClient } from "@supabase/supabase-js";
-
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-// Client is created only when env vars are configured, so a fresh clone
-// shows a clear "Not Configured" state instead of crashing or faking data.
-export const supabase = url && anonKey ? createClient(url, anonKey) : null;
-export const isSupabaseConfigured = Boolean(supabase);
