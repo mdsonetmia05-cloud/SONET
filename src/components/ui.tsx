@@ -11,9 +11,9 @@ export function Page({ title, intro, eyebrow, children }: { title: string; intro
     </section>
   );
 }
-export function Section({ eyebrow, title, intro, children }: { eyebrow?: string; title: string; intro?: string; children?: ReactNode }) {
+export function Section({ eyebrow, title, intro, children, className }: { eyebrow?: string; title: string; intro?: string; children?: ReactNode; className?: string }) {
   return (
-    <section>
+    <section className={className}>
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       <h2>{title}</h2>
       {intro && <p className="lead">{intro}</p>}
