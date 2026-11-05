@@ -1,25 +1,37 @@
-:root { --bg: #FFFFFF; --bg2: #F5F6F8; --ink: #17191D; --ink2: #737780; --accent: #315CBA; --accent-soft: #DCE5F7; --line: #E5E7EB; --radius: 12px; --shadow: 0 1px 2px rgba(23,25,29,.06); }
+:root { --bg: #FFFFFF; --bg2: #F5F6F8; --ink: #17191D; --ink2: #6B6F76; --accent: #315CBA; --accent-soft: #DCE5F7; --line: #E5E7EB; --radius: 12px; --radius-lg: 16px; --radius-xl: 24px; --shadow: 0 1px 2px rgba(23,25,29,.06); --shadow-lift: 0 12px 28px rgba(23,25,29,.08); --space-section: 72px; --ease-out: cubic-bezier(0.2, 0, 0, 1); }
+/* a11y: --ink2 was #737780, measured 4.49:1 on white — just under WCAG AA 4.5:1.
+   #6B6F76 measures 5.05:1. Dark-mode muted (#A1A1AA on #101114, 7.37:1) is unchanged. */
 @media (prefers-color-scheme: dark) { :root { --bg: #101114; --bg2: #191B20; --ink: #F5F5F5; --ink2: #A1A1AA; --accent: #8B9DFF; --accent-soft: #23283D; --line: #30323A; --shadow: 0 1px 2px rgba(0,0,0,.3); } }
 * { box-sizing: border-box; }
-body { margin: 0; font-family: Inter, "Hind Siliguri", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { margin: 0; font-family: Inter, "Hind Siliguri", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; /* the full-bleed hero uses 100vw; keep it from adding a horizontal scrollbar */ }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-main > section, .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 24px; }
+html { scroll-padding-top: 72px; }
+main > section, .wrap { max-width: 1120px; margin: 0 auto; padding: var(--space-section) 24px; }
 main > section + section { border-top: 1px solid var(--line); }
-h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.12; margin: 12px 0 16px; letter-spacing: -0.02em; }
+/* Featured section: a soft-accent band that breaks the identical-section rhythm
+   (better-layout: group with space/background, not lines). No border-top here. */
+.section-featured { background: var(--accent-soft); border-top: none; border-radius: var(--radius-xl); padding: 40px; }
+.section-featured + section { border-top: none; }
+h1, h2 { text-wrap: balance; }
+h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin: 12px 0 16px; letter-spacing: -0.02em; }
 h2 { font-size: clamp(24px, 3vw, 30px); line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.01em; }
 h3 { font-size: 18px; margin: 0 0 8px; line-height: 1.35; }
 p { margin: 0 0 14px; }
-.lead { font-size: 18px; color: var(--ink2); max-width: 720px; }
+.lead { font-size: 18px; line-height: 1.6; color: var(--ink2); max-width: 65ch; }
 .muted { color: var(--ink2); }
 .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-.card { border: 1px solid var(--line); background: var(--bg); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); transition: border-color .15s ease, transform .15s ease; }
-a .card:hover, .card:hover { border-color: var(--accent); }
+.card { border: 1px solid var(--line); background: var(--bg); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); transition: border-color .15s var(--ease-out), transform .15s var(--ease-out), box-shadow .15s var(--ease-out); }
+/* better-ui: borders for structure, shadows for elevation; hover lifts the card.
+   border: transparent keeps an edge in forced-colors mode where shadows vanish. */
+a .card:hover, .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-lift); }
 .card-soft { background: var(--bg2); }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 20px; }
-.btn { display: inline-block; background: var(--accent); color: #fff; padding: 11px 20px; border-radius: 8px; font-weight: 600; border: 1px solid var(--accent); transition: opacity .15s ease; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 8px; font-weight: 600; border: 1px solid var(--accent); transition: opacity .15s var(--ease-out), transform .15s var(--ease-out), background-color .15s var(--ease-out), border-color .15s var(--ease-out); }
 .btn:hover { text-decoration: none; opacity: .9; }
+/* better-ui: press scales to 0.96 over 150ms; disabled buttons never scale. */
+.btn:active:not(:disabled) { transform: scale(.96); }
 .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn + .btn, .btn + a.btn { margin-left: 10px; }
 input, select, textarea { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); margin: 6px 0 14px; font: inherit; }
@@ -32,7 +44,13 @@ details summary { font-weight: 600; cursor: pointer; }
 table { width: 100%; border-collapse: collapse; }
 th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
 ul.tight li { margin-bottom: 6px; }
-@media (max-width: 640px) { main > section, .wrap { padding: 36px 18px; } table { display: block; overflow-x: auto; } }
+@media (max-width: 640px) { main > section, .wrap { padding: 48px 18px; } .section-featured { padding: 28px 20px; } table { display: block; overflow-x: auto; } }
+/* better-ui / ui-ux-pro-max: under reduced motion, movement becomes an opacity
+   cross-fade instead of disappearing instantly; the founder rules below keep
+   their own reduced-motion handling. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
 /* Founder page animations — restored after the polish rewrite overwrote
    globals.css and lost them. CSS only, no extra library. */
 @keyframes founderFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
