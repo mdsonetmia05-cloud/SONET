@@ -34,10 +34,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         <main>{children}</main>
         <footer style={{ borderTop: "1px solid var(--line)", background: "var(--bg2)" }}>
-          <div className="wrap">
-            <p><strong>SONET</strong> — One Account. One Unified Dashboard. Six Connected Divisions.</p>
-            <p className="muted">AI · Academy · Microstock · Studio · Skills · Lab · <Link href="/faq">FAQ</Link> · <Link href="/pricing">Pricing</Link> · <Link href="/contact">Contact</Link></p>
-            <p className="muted">Integrations that are not configured are labelled Not Configured, never simulated. See docs/INTEGRATIONS.md.</p>
+          <div className="wrap" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 24 }}>
+            <div>
+              <p><strong>SONET</strong></p>
+              <p className="muted">One Account. One Unified Dashboard. Six Connected Divisions.</p>
+            </div>
+            <div>
+              <p><strong>Divisions</strong></p>
+              <p><Link href="/divisions/ai">AI</Link> · <Link href="/divisions/academy">Academy</Link> · <Link href="/divisions/microstock">Microstock</Link><br /><Link href="/divisions/studio">Studio</Link> · <Link href="/divisions/skills">Skills</Link> · <Link href="/divisions/lab">Lab</Link></p>
+            </div>
+            <div>
+              <p><strong>Platform</strong></p>
+              <p><Link href="/marketplace">Marketplace</Link> · <Link href="/pricing">Pricing</Link> · <Link href="/faq">FAQ</Link><br /><Link href="/about">Founder</Link> · <Link href="/contact">Contact</Link> · <Link href="/dashboard">Dashboard</Link></p>
+            </div>
+            <div>
+              <p><strong>Status</strong></p>
+              <p className="muted">Integrations that are not configured are labelled Not Configured, never simulated. See docs/INTEGRATIONS.md.</p>
+            </div>
           </div>
         </footer>
       </body>
