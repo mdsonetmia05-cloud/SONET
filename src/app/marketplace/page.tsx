@@ -14,7 +14,7 @@ export default function Marketplace() {
       {filtered.length === 0 ? <p className="empty">No products match your search. Try a different term or category.</p> : (
         <Grid>{filtered.map((p) => <Card key={p.id} title={p.name}><p className="muted">{p.category} · {p.type}</p><p><strong>{p.price === 0 ? "Free" : `$${p.price}`}</strong></p></Card>)}</Grid>
       )}
-      <p className="muted" style={{ marginTop: 20 }}>Full cart, checkout, order history and secure downloads are connected once Supabase and manual payment verification are configured. Access is granted only after verified payment.</p>
+      <p className="muted" style={{ marginTop: 20 }}>Full cart, checkout, order history and secure downloads are connected once the Neon database and manual payment verification are configured. Access is granted only after verified payment.</p>
     </Page>
   );
 }
