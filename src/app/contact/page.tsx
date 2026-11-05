@@ -1,4 +1,4 @@
-import { Page, Grid, Card } from "@/components/ui";
+import { Page } from "@/components/ui";
 export default function P() {
   return (
     <Page title="Contact" eyebrow="Get in touch" intro="Contact SONET support. Authenticated users can also use Dashboard → Support to chat with Super Admin.">
