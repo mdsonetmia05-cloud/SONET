@@ -14,7 +14,7 @@ const LINKS: [string, string, string][] = [
 ];
 export default function DashboardPage() {
   return (
-    <Page title="My Dashboard" eyebrow="One account" intro="Welcome to SONET. Everything below shows real database information once you are signed in and Supabase is configured — with honest empty states until then.">
+    <Page title="My Dashboard" eyebrow="One account" intro="Welcome to SONET. Everything below shows real database information once you are signed in and Neon is configured — with honest empty states until then.">
       <Grid>{LINKS.map(([t, h, d]) => <Card key={h} title={t} href={h}><p className="muted">{d}</p></Card>)}</Grid>
       <div style={{ marginTop: 24 }}><Empty title="No activity yet" body="When you enrol in a course, buy a product, use an AI tool or receive a notification, your recent activity will appear here. Nothing is invented to fill this space." /></div>
     </Page>
