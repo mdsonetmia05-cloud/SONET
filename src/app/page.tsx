@@ -3,17 +3,13 @@ import { DIVISIONS, AI_TOOLS } from "@/lib/divisions";
 import { PRODUCTS, COURSES, FAQS } from "@/lib/catalogue";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import { Grid, Card, Section } from "@/components/ui";
+import { Hero } from "@/components/hero";
 
 export default function Home() {
   return (
     <div>
-      <section>
-        <p className="eyebrow">SONET Ecosystem</p>
-        <h1>One Ecosystem.<br />Endless Possibilities.</h1>
-        <p className="lead">AI tools, digital products, professional learning and innovative technology — connected through one account, one dashboard and one administration system.</p>
-        <p><Link href="/divisions" className="btn">Explore Ecosystem</Link><Link href="/register" className="btn btn-secondary">Get Started</Link></p>
-        {!isSupabaseConfigured && <p className="card card-soft"><span className="badge">Not Configured</span> — Supabase is not configured in this build. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local. No users, revenue or usage are simulated.</p>}
-      </section>
+      <Hero />
+      {!isSupabaseConfigured && <p className="card card-soft" style={{ marginTop: 24 }}><span className="badge">Not Configured</span> — Supabase is not configured in this build. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local. No users, revenue or usage are simulated.</p>}
       <Section eyebrow="How it works" title="Start in three steps" intro="No separate accounts, no scattered tools.">
         <Grid>
           <Card title="1 · Create one account"><p>Register once and use the same account across every division.</p></Card>
