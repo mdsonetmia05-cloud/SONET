@@ -32,3 +32,18 @@
   advisory). Upgrade Next to a patched 14.x before production.
 - Live Academy admin/teacher UI click-through verification is still
   outstanding (from the earlier Academy expansion).
+
+## Polish — all sections (2026-11-05)
+- Design system refined: section rhythm, card hover, focus-visible states,
+  responsive clamp typography, CTA band and details/accordion styling.
+- Homepage rewritten with consistent eyebrow/lead sections and a
+  three-step “how it works” section; testimonials kept honest (no invented quotes).
+- Division pages now list their real programmes and features instead of a
+  generic paragraph. Marketplace and AI Tools gained real client-side
+  search/filter over the catalogue. Pricing shows plan cards with a
+  Not Configured note instead of invented prices. FAQ uses an accordion.
+- Academy page now explains the Year → Level → Class → Subject → Chapter
+  → Topic → Lesson flow. Dashboard and Admin overviews now link to every
+  sub-section with honest empty states.
+- Founder (/about) page preserved unchanged in content — only the shared
+  design system around it was polished.
