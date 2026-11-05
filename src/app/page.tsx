@@ -2,7 +2,7 @@ import Link from "next/link";
 import { DIVISIONS, AI_TOOLS } from "@/lib/divisions";
 import { PRODUCTS, COURSES, FAQS } from "@/lib/catalogue";
 import { isDatabaseConfigured } from "@/lib/db";
-import { Grid, Card, Section } from "@/components/ui";
+import { Grid, Card, Section, Empty } from "@/components/ui";
 import { Hero } from "@/components/hero";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
       <Section eyebrow="SONET AI" title="Featured AI tools" intro="Access, daily limits and availability are shown per tool. Unconfigured providers are labelled Not Configured.">
         <Grid>{AI_TOOLS.slice(0, 6).map((t) => <Card key={t} title={t} href="/ai-tools"><p className="muted">Server-side calls only. Keys never appear in frontend code.</p></Card>)}</Grid>
       </Section>
-      <Section eyebrow="SONET Academy" title="Bangladesh academic learning, done properly">
+      <Section eyebrow="SONET Academy" title="Bangladesh academic learning, done properly" className="section-featured">
         <p lang="bn">বাংলাদেশের শিক্ষার্থীদের জন্য প্রাক-প্রাথমিক থেকে দ্বাদশ শ্রেণি পর্যন্ত একাডেমিক লার্নিং।</p>
         <p>NCTB structure, education boards, academic years, groups, subjects, chapters, topics, lessons and examinations — with curriculum versions preserved, never overwritten.</p>
         <p><Link href="/academy" className="btn">Open Academy</Link><Link href="/divisions/academy" className="btn btn-secondary">Academy overview</Link></p>
@@ -35,10 +35,10 @@ export default function Home() {
         <Grid>{COURSES.map((c) => <Card key={c.id} title={c.name} href="/skills"><p className="muted">{c.division}</p></Card>)}</Grid>
       </Section>
       <Section eyebrow="Updates" title="Latest updates">
-        <p className="muted">Updates are published from the admin content module. No update is shown here until it exists in the database.</p>
+        <Empty title="No updates yet" body="Updates are published from the admin content module. No update is shown here until it exists in the database." />
       </Section>
       <Section eyebrow="Trust" title="Testimonials">
-        <p className="muted">Only verified testimonials are shown. None have been verified and published yet, so this section is intentionally left without invented quotes.</p>
+        <Empty title="No verified testimonials yet" body="Only verified testimonials are shown. None have been verified and published yet, so this section is intentionally left without invented quotes." />
       </Section>
       <Section eyebrow="Help" title="Frequently asked questions">
         <Grid>{FAQS.map((f) => <Card key={f.q} title={f.q}><p>{f.a}</p></Card>)}</Grid>
