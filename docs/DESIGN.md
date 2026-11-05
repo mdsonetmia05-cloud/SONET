@@ -108,6 +108,19 @@ the image; the section's `overflow: hidden` clips it), so the body
 looks like it continues below the hero instead of being cut. Nothing
 else in the hero changed.
 
+### Homepage is the hero only (2026-11-06)
+Mark asked for the photo to sit higher and for nothing below the hero
+on the website. `src/app/page.tsx` now renders only `<Hero />` — all
+homepage sections and the CTA band are gone. The footer is hidden on
+the homepage only (new `src/components/footer.tsx`, a client component
+using `usePathname`; it still shows on every other page, where
+Divisions and Founder are reachable from it). The photo is lifted
+higher in the hero (`marginTop: -64`, bottom bleed kept with
+`marginBottom: -152`). Verified locally: tests pass, tsc clean, lint
+clean, production build passes, and a local serve shows the homepage
+with the hero and no section or footer text, while /academy still
+shows the footer. Local only, not uploaded.
+
 ## Hero — professional redesign (2026-11-05, after this pass)
 
 Mark removed the lime-green accent: **no green anywhere in the hero**.
