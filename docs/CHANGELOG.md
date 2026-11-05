@@ -47,3 +47,12 @@
   sub-section with honest empty states.
 - Founder (/about) page preserved unchanged in content — only the shared
   design system around it was polished.
+
+## Next 16.4.5 upgrade + Neon (2026-11-05)
+- Upgraded Next.js 14.2.5 → 16.4.5 and React 18.3.1 → 19.3.1. ESLint 8 → 9 with flat config (eslint.config.mjs); `next lint` script replaced with `eslint .`; .eslintrc.json removed.
+- Replaced Supabase with Neon Postgres + Managed Better Auth (Neon Auth): src/lib/db.ts (Neon serverless client), src/lib/auth/server.ts + client.ts (createNeonAuth / createAuthClient), /api/auth/[...path] proxy route, auth pages rebuilt on the Neon Auth client, requireUser via getSession, hasRole via a real user_roles query, profile sync into users/profiles on first sign-in. @supabase/supabase-js removed; no Stack Auth code.
+- Neon Auth user ids are UUIDs (verified against Neon's docs), so they fit users.id (uuid) directly; no migration 004 was needed.
+- Auth UI is custom SONET components (no @neondatabase/auth-ui / better-auth-ui): those ship Tailwind v4/shadcn scaffolding the app does not use; the app stays on Tailwind 3.4.0.
+- No route-protection middleware: the site is mostly public; enforcement stays in requireUser()/hasRole().
+- Verified in this environment (2026-11-05): npm test 2 passed; npx tsc --noEmit clean; npm run lint 0 errors (8 pre-existing unused-variable warnings); npm run build passed, 59 routes.
+- Not yet verified live: sign-up/sign-in against the real Neon Auth service, and the DATABASE_URL/NEON_AUTH_* values in Vercel — pending redeploy and live check.
