@@ -252,7 +252,11 @@ export function Hero() {
               // show. The negative margin pushes it past the hero bottom,
               // where the section's overflow: hidden clips it — the body
               // looks like it continues below the hero instead of being cut.
-              marginBottom: -120,
+              // marginTop lifts the photo higher in the hero (Mark,
+              // 2026-11-06); the bottom bleed is kept by the larger
+              // negative bottom margin.
+              marginTop: -64,
+              marginBottom: -152,
             }}
           />
         </div>
