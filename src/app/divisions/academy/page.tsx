@@ -1,8 +1,8 @@
-import { Page, Empty } from "@/components/ui";
+import { Page, Grid, Card } from "@/components/ui";
 export default function P() {
   return (
-    <Page title="SONET ACADEMY" intro="Bangladesh-focused learning: Pre-primary to Class 12, university admission, IELTS, BCS and job preparation, with NCTB structure, boards, years, groups, subjects, chapters, topics and curriculum versions.">
-      <p>Products and content for this division are managed from the Super Admin panel and loaded from the database. Until the database is configured, this page shows the division catalogue honestly, without invented sales or users.</p>
+    <Page title="SONET ACADEMY" eyebrow="Bangladesh academic LMS" intro="Pre-primary to Class 12, university admission, IELTS, BCS and job preparation — NCTB-aligned, board-aware and version-controlled.">
+      <Grid><Card title="Pre-primary & Primary (Class 1–5)"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card><Card title="Secondary (Class 6–10)"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card><Card title="Higher Secondary (Class 11–12)"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card><Card title="University Admission Preparation"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card><Card title="IELTS & English Learning"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card><Card title="BCS & Job Preparation"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card><Card title="Technical & Vocational Learning"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card><Card title="Madrasah Education"><p className="muted">Managed from the Super Admin panel and loaded from the database.</p></Card></Grid><p style={{ marginTop: 20 }}>A tool or product in this division is shown as functional only after its backend integration works. Unconfigured integrations are labelled Not Configured.</p>
     </Page>
   );
 }
