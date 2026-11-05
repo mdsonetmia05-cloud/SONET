@@ -1,4 +1,4 @@
-import { Page, Grid, Card } from "@/components/ui";
+import { Page } from "@/components/ui";
 export default function P() {
   return (
     <Page title="Journal & Updates" eyebrow="News & resources" intro="Latest updates, articles and educational resources from SONET.">
