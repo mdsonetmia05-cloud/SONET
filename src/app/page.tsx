@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DIVISIONS, AI_TOOLS } from "@/lib/divisions";
 import { PRODUCTS, COURSES, FAQS } from "@/lib/catalogue";
-import { isSupabaseConfigured } from "@/lib/supabase";
+import { isDatabaseConfigured } from "@/lib/db";
 import { Grid, Card, Section } from "@/components/ui";
 import { Hero } from "@/components/hero";
 
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      {!isSupabaseConfigured && <p className="card card-soft" style={{ marginTop: 24 }}><span className="badge">Not Configured</span> — Supabase is not configured in this build. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local. No users, revenue or usage are simulated.</p>}
+      {!isDatabaseConfigured && <p className="card card-soft" style={{ marginTop: 24 }}><span className="badge">Not Configured</span> — Neon database is not configured in this build. Set DATABASE_URL in .env.local. No users, revenue or usage are simulated.</p>}
       <Section eyebrow="How it works" title="Start in three steps" intro="No separate accounts, no scattered tools.">
         <Grid>
           <Card title="1 · Create one account"><p>Register once and use the same account across every division.</p></Card>
