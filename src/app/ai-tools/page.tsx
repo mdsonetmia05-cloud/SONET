@@ -13,6 +13,10 @@ export default function AiTools() {
         <Card key={t} title={t} href="/ai-tools/promptex" hrefLabel="Open PromptEx →">
           <p className="muted">Turn images into sell-ready microstock metadata with your own Gemini key — titles, keywords, captions, or image-generation prompts, downloaded as CSV.</p>
         </Card>
+      ) : t === "Weather" ? (
+        <Card key={t} title={t} href="/ai-tools/weather" hrefLabel="Open Weather →">
+          <p className="muted">Live weather for any city, powered by Open-Meteo — no API key needed. Dhaka is shown by default, with a 7-day forecast.</p>
+        </Card>
       ) : (
         <Card key={t} title={t}><p className="muted">Free / Premium access, daily limits and documentation are shown per tool once its provider is configured.</p></Card>
       ))}</Grid>
