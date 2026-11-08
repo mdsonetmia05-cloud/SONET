@@ -8,6 +8,7 @@
 - Email provider: Not Configured for app mail — auth emails (password reset, verification) are sent by Neon's shared SMTP for auth only.
 - Sweet Upscaler / Sweet BG: Not Configured in the live app
 - PromptEx (/ai-tools/promptex): works with the user's own Gemini key only. The key is tested against Google's Gemini API and stored only in the user's browser (localStorage); it is never sent to a SONET server. Groq / OpenRouter / Together / Mistral / HuggingFace: Not Configured. EPS files are listed but not processed by Gemini vision — a JPG/PNG preview is required.
+- Weather (/ai-tools/weather): live data from Open-Meteo (free, no API key, no sign-up). Current conditions + 7-day forecast; city search via Open-Meteo geocoding. Dhaka is the default city. All requests run from the visitor's browser; nothing is sent to a SONET server.
 
 ## Honest limits
 - Neon free tier: 100 CU-hours of compute and 1 GB of storage per project per month; compute scales to zero after ~5 minutes idle (the first request after idle wakes it). No card.
