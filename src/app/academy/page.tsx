@@ -114,6 +114,14 @@ export default function AcademyPage() {
         <p className="muted">Boards: {BOARDS.join(", ")}. Curriculum versions are preserved — prior years are never overwritten. No copyrighted textbook is reproduced in full; see docs/ACADEMY.md.</p>
       </Section>
 
+      <Section title="Library — Book Finder" intro="Search millions of books from Open Library by title, author or subject — covers, authors, first published year and details, free with no account.">
+        <Grid>
+          <Card title="Book Finder" href="/academy/books" hrefLabel="Search books →">
+            <p>Find books for study and reading: covers, authors, descriptions and links to read them on Open Library.</p>
+          </Card>
+        </Grid>
+      </Section>
+
       <Section title="Start learning">
         <div className="cta-band">
           <p><strong>Ready to start?</strong></p>
