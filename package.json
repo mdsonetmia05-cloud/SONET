@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test": "node --test tests/pricing.test.mjs tests/weather.test.mjs"
+    "test": "node --test tests/pricing.test.mjs tests/weather.test.mjs tests/snake.test.mjs"
   },
   "dependencies": {
     "@neon/auth": "^0.8.2",
