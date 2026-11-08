@@ -13,5 +13,5 @@ export const AI_TOOLS = [
   "Sweet Prompts Pro", "Sweet Stock AI", "Sweet Upscaler", "Sweet BG",
   "SweetTools", "Sweet Image-to-Prompts", "Sweet Converter Hub",
   "Sweet Design AI", "PromptEx", "AI Microstock Metadata Generator Pro",
-  "AI Automation Solutions",
+  "AI Automation Solutions", "Weather",
 ];
